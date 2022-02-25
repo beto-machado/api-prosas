@@ -9,6 +9,6 @@ class Proposta < ApplicationRecord
   end
 
   validates :descricao, length: { maximum: 1000 }
-  validates :valor, numericality: { :greater_than }
+  validates :valor, numericality: { greater_than: 0 }
 
 end

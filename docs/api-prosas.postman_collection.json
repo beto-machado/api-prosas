@@ -1,0 +1,297 @@
+{
+	"info": {
+		"_postman_id": "44205342-4146-4d24-b268-4580d88bf3ed",
+		"name": "api-prosas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Index",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/propostas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"propostas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"La Casa de Papel\",\r\n    \"descricao\": \"Animi accusamus ut. Sunt maxime voluptatum. Dolore incidunt sequi. Numquam minima veniam. Quasi et molestias. Repudiandae nihil aperiam. Aut iusto et. Mollitia quae et. Dolore odit consequatur. Ut quia qui. Ab amet illo. Voluptatibus nihil sit. Eveniet es.\",\r\n    \"valor\": 10.00,\r\n    \"inicio\": \"2022-02-25\",\r\n    \"fim\": \"2022-02-25\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/propostas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"propostas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "não pode criar com valor 0",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"La Casa de Papel\",\r\n    \"descricao\": \"Animi accusamus ut. Sunt maxime voluptatum. Dolore incidunt sequi. Numquam minima veniam. Quasi et molestias. Repudiandae nihil aperiam. Aut iusto et. Mollitia quae et. Dolore odit consequatur. Ut quia qui. Ab amet illo. Voluptatibus nihil sit. Eveniet es.\",\r\n    \"valor\": 0.0,\r\n    \"inicio\": \"2022-02-25\",\r\n    \"fim\": \"2022-02-25\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/propostas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"propostas"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "52568a28-2fcb-4fca-ae47-507ebf3d6e25"
+						},
+						{
+							"key": "X-Runtime",
+							"value": "0.013933"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"valor\": [\n        \"must be greater than 0\"\n    ]\n}"
+				},
+				{
+					"name": "criando proposta",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"La Casa de Papel\",\r\n    \"descricao\": \"Animi accusamus ut. Sunt maxime voluptatum. Dolore incidunt sequi. Numquam minima veniam. Quasi et molestias. Repudiandae nihil aperiam. Aut iusto et. Mollitia quae et. Dolore odit consequatur. Ut quia qui. Ab amet illo. Voluptatibus nihil sit. Eveniet es.\",\r\n    \"valor\": 10.00,\r\n    \"inicio\": \"2022-02-25\",\r\n    \"fim\": \"2022-02-25\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/propostas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"propostas"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b140c3d4d6976c02f205044056714713\""
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=0, private, must-revalidate"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "d53d85da-6209-4d3f-882d-7f9cb8a2d51f"
+						},
+						{
+							"key": "X-Runtime",
+							"value": "0.019029"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"proposta\",\n    \"data\": {\n        \"id\": \"79884668-c36d-4067-b4a9-2317e3a18ba5\",\n        \"nome\": \"La Casa de Papel\",\n        \"descricao\": \"Animi accusamus ut. Sunt maxime voluptatum. Dolore incidunt sequi. Numquam minima veniam. Quasi et molestias. Repudiandae nihil aperiam. Aut iusto et. Mollitia quae et. Dolore odit consequatur. Ut quia qui. Ab amet illo. Voluptatibus nihil sit. Eveniet es.\",\n        \"valor\": 10,\n        \"inicio\": \"2022-02-25\",\n        \"fim\": \"2022-02-25\",\n        \"created_at\": \"2022-02-25T18:55:32.111Z\",\n        \"updated_at\": \"2022-02-25T18:55:32.111Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Show",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/propostas/8a955a66-081f-43e1-82c5-01fd2660cc41",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"propostas",
+						"8a955a66-081f-43e1-82c5-01fd2660cc41"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Os Vingadores\",\r\n    \"descricao\": \"Animi accusamus ut. Sunt maxime voluptatum. Dolore incidunt sequi. Numquam minima veniam. Quasi et molestias. Repudiandae nihil aperiam. Aut iusto et. Mollitia quae et. Dolore odit consequatur. Ut quia qui. Ab amet illo. Voluptatibus nihil sit. Eveniet es.\",\r\n    \"valor\": 2.71,\r\n    \"inicio\": \"2022-02-24\",\r\n    \"fim\": \"2022-02-24\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/propostas/8a955a66-081f-43e1-82c5-01fd2660cc41",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"propostas",
+						"8a955a66-081f-43e1-82c5-01fd2660cc41"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
