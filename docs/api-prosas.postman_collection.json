@@ -12,13 +12,24 @@
 			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/v1/propostas",
+					"raw": "http://localhost:3000/api/v1/propostas?search=&page=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -28,6 +39,17 @@
 						"api",
 						"v1",
 						"propostas"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "",
+							"description": "Busca por nome, valor, inicio e fim"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
 					]
 				}
 			},
