@@ -9,7 +9,7 @@ class Proposta < ApplicationRecord
     validates :fim
   end
 
-  validates :descricao, length: { maximum: 1000 }
+  validates :descricao, length: { maximum: 2000 }
   validates :valor, numericality: { greater_than: 0 }
 
   pg_search_scope :search,
@@ -21,5 +21,13 @@ class Proposta < ApplicationRecord
                   ]
 
   scope :sorted, ->{ order(nome: :asc) }
+
+  def start_at
+    self.inicio.strftime("%d/%m/%Y")
+  end
+
+  def finish_at
+    attributes['fim'].strftime("%d/%m/%Y")
+  end
 
 end

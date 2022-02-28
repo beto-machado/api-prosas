@@ -6,7 +6,8 @@ module RenderMeta
       current_page: collection.current_page,
       next_page: collection.next_page,
       total_page: collection.total_pages,
-      total_items: collection.length
+      total_items_per_page: collection.length,
+      total_items: Proposta.count
     }.merge(extra_meta)
   end
 end

@@ -34,7 +34,7 @@ module Api
       # PATCH/PUT /api/v1/propostas/1
       def update
         if @proposta.update(proposta_params)
-          render json: { type: :proposta, data: @proposta}
+          render json: { type: :proposta, data: @proposta}, status: :ok
         else
           render json: @proposta.errors, status: :unprocessable_entity
         end
@@ -42,7 +42,7 @@ module Api
 
       # DELETE /api/v1/propostas/1
       def destroy
-        @proposta.destroy
+        @propostas = Proposta.find(params[:id]).destroy
       end
 
       private
