@@ -12,6 +12,7 @@ RSpec.describe Proposta, type: :model do
 
     it { should validate_uniqueness_of(:nome) }
     it { should validate_numericality_of(:valor).is_greater_than(0) }
+    it { should validate_length_of(:descricao).is_at_most(2000) }
 
   end
 end

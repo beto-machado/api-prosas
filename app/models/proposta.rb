@@ -22,12 +22,4 @@ class Proposta < ApplicationRecord
 
   scope :sorted, ->{ order(nome: :asc) }
 
-  def start_at
-    self.inicio.strftime("%d/%m/%Y")
-  end
-
-  def finish_at
-    attributes['fim'].strftime("%d/%m/%Y")
-  end
-
 end
