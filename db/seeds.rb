@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Proposta.create!(
   (1..50).map do
     {

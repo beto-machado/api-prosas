@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "boot"
 
 require "rails"
@@ -36,5 +38,10 @@ module ApiProsas
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    config.active_job.queue_adapter = :sidekiq
+
+    config.x.sidekiq_user = ::Digest::SHA256.hexdigest("prosas")
+    config.x.sidekiq_pass = ::Digest::SHA256.hexdigest("90575890Prosas")
   end
 end

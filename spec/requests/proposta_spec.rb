@@ -1,16 +1,16 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 RSpec.describe "/api/v1/propostas", type: :request do
-
-  let(:proposta_params) {
-    { nome: 'Luis Roberto', descricao: 'Primeira Proposta', valor: 80.80,
-      inicio: '10/12/2021', fim: '10/02/2022'}
-  }
+  let(:proposta_params) do
+    { nome: "Luis Roberto", descricao: "Primeira Proposta", valor: 80.80,
+      inicio: "10/12/2021", fim: "10/02/2022" }
+  end
 
   describe "GET /index" do
     it "return list of proposal" do
       create_list(:proposta, 3)
-      total_objects = Proposta.count
 
       get "/api/v1/propostas"
       expect(response).to have_http_status 200
@@ -30,9 +30,7 @@ RSpec.describe "/api/v1/propostas", type: :request do
   end
 
   describe "POST /create" do
-
     context "with valid parameters" do
-
       it "creating a new Proposal" do
         proposta_count = Proposta.count
 
@@ -40,19 +38,12 @@ RSpec.describe "/api/v1/propostas", type: :request do
 
         expect(response).to have_http_status 201
 
-        proposta_id = json_body[:data][:id]
-        proposta = Proposta.find(proposta_id)
         expect(Proposta.count) == (proposta_count + 1)
       end
-
     end
 
     context "with invalid parameters" do
-
       it "does not create a new Proposta with the same name" do
-        proposta = create(:proposta, nome: 'Luis Roberto')
-        proposta_count = Proposta.count
-
         post "/api/v1/propostas/", params: { proposta: proposta_params }
 
         expect(response).to have_http_status 422
@@ -61,7 +52,6 @@ RSpec.describe "/api/v1/propostas", type: :request do
   end
 
   describe "PATCH /update" do
-
     it "update a proposal" do
       proposta = create(:proposta)
 
@@ -73,14 +63,13 @@ RSpec.describe "/api/v1/propostas", type: :request do
 
       proposta_id = json_body[:data][:id]
       proposta = Proposta.find(proposta_id)
-      expect(proposta.nome).to eq('Luis Roberto')
-      expect(proposta.descricao).to eq('Primeira Proposta')
+      expect(proposta.nome).to eq("Luis Roberto")
+      expect(proposta.descricao).to eq("Primeira Proposta")
       expect(proposta.valor).to eq(80.80)
     end
   end
 
   describe "DELETE /destroy" do
-
     it "deleting the proposal" do
       proposta = create(:proposta)
       proposta_count = Proposta.count

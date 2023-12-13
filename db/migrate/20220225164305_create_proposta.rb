@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateProposta < ActiveRecord::Migration[6.1]
   def change
     create_table :proposta, id: :uuid do |t|

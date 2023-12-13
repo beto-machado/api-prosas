@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Proposta < ApplicationRecord
   include PgSearch::Model
 
@@ -14,12 +16,11 @@ class Proposta < ApplicationRecord
 
   pg_search_scope :search,
                   against: [
-                    [:nome, 'A'],
-                    [:inicio, 'A'],
-                    [:fim, 'A'],
-                    [:valor, 'A']
+                    [:nome, "A"],
+                    [:inicio, "A"],
+                    [:fim, "A"],
+                    [:valor, "A"]
                   ]
 
-  scope :sorted, ->{ order(nome: :asc) }
-
+  scope :sorted, -> { order(nome: :asc) }
 end
